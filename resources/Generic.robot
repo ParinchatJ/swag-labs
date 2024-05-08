@@ -1,6 +1,7 @@
 *** Settings ***
 Library           SeleniumLibrary
 Library           OperatingSystem
+Library           Screenshot
 
 
 *** Variables ***
@@ -20,3 +21,7 @@ Open Browser with URL
     ...     executable_path=/${home}/Documents/Chrome/chromedriver
 
     Maximize Browser Window
+
+Screenshot
+    Set Screenshot Directory    ./screenshot
+    Capture Page Screenshot     TC_01_member_buy_success_{index}.png
