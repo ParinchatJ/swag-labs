@@ -1,0 +1,5 @@
+Data:
+  TC_01:
+    user_data:
+      user_name:  standard_user
+      pwd:  secret_sauce
