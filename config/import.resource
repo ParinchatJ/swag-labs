@@ -6,7 +6,7 @@ Library           String
 Library           BuiltIn
 
 # Variables
-# Resource          ../test_data/data.yaml
+Variables        ${CURDIR}/../test_data/data.yaml
 
 # Page
 Resource          ../pages/index/open_browser.resource
@@ -28,13 +28,8 @@ Resource          ../keywords/overview_keyword.resource
 
 
 
-
 *** Variables ***
-${SERVER}               https://www.saucedemo.com
-${BROWSER}              gc 
-${FIRSTNAME}            Parinchat
-${LASTNAME}             Juntaworn
-${ZIP}                  11000
+
 &{product_sauce_labs_backpack}              title=Sauce Labs Backpack         price=29.99     
 &{product_sauce_labs_fleece_jacket}         title=Sauce Labs Fleece Jacket    price=49.99   
 ${tax}                                      8/100 

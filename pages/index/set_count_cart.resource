@@ -1,9 +1,14 @@
+*** Variables ***
+
+&{dict_set_count_cart_page}
+...     shopping_cart=//span[@class='shopping_cart_badge']
+
 *** Keywords ***
 
 Set count cart 
-        ${count_cart}           Run Keyword And Return Status    Page Should Contain Element    //span[@class='shopping_cart_badge']
+        ${count_cart}           Run Keyword And Return Status    Page Should Contain Element    ${dict_set_count_cart_page}[shopping_cart]
         IF      ${count_cart}   
-                ${count_of_cart}     Get Text           //span[@class='shopping_cart_badge']
+                ${count_of_cart}     Get Text           ${dict_set_count_cart_page}[shopping_cart]
                 
         ELSE
                 ${count_of_cart}     Set Variable       0
