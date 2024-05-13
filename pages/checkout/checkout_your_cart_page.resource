@@ -4,11 +4,11 @@
 ...     your_cart_text=//div[@class='header_secondary_container']//span[text()='Your Cart']
 ...     shopping_cart_number=//span[@class='shopping_cart_badge'][text()='2']
 ...     sauce_labs_backpack_qty=//div[@class='cart_item' and .//div[text()='${product_sauce_labs_backpack}[title]']]//*[@class='cart_quantity']
-...     sauce_labs_backpack_title=//div[@class='cart_item' and .//div[text()='${product_sauce_labs_backpack}[title]']]//div[text()='${product_sauce_labs_backpack}[title]']
+...     sauce_labs_backpack_title=//div[@class='cart_item' and .//div[text()='${product_sauce_labs_backpack}[title]']]
 ...     sauce_labs_backpack_price=//div[@class='cart_item' and .//div[text()='${product_sauce_labs_backpack}[title]']]//*[text()='$' and text() = '${product_sauce_labs_backpack}[price]']
 ...     sauce_labs_backpack_rm_bt=id=remove-sauce-labs-backpack
 ...     sauce_labs_fleece_jacket_qty=//div[@class='cart_item' and .//div[text()='${product_sauce_labs_fleece_jacket}[title]']]//*[@class='cart_quantity']
-...     sauce_labs_fleece_jacket_title=//div[@class='cart_item' and .//div[text()='${product_sauce_labs_fleece_jacket}[title]']]//div[text()='${product_sauce_labs_fleece_jacket}[title]']
+...     sauce_labs_fleece_jacket_title=//div[@class='cart_item' and .//div[text()='${product_sauce_labs_fleece_jacket}[title]']]
 ...     sauce_labs_fleece_jacket_price=//div[@class='cart_item' and .//div[text()='${product_sauce_labs_fleece_jacket}[title]']]//*[text()='$' and text() = '${product_sauce_labs_fleece_jacket}[price]']
 ...     sauce_labs_fleece_jacket_rm_bt=id=remove-sauce-labs-fleece-jacket
 ...     checkout_bt=id=checkout

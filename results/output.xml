@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0 (Python 3.11.9 on darwin)" generated="20240513 23:05:55.147" rpa="false" schemaversion="3">
+<suite id="s1" name="Swag-Labs" source="/Users/parinceee/Desktop/Tester-PO/LEARN-space/learn-Robot/robot-poley/swag-labs">
+<suite id="s1-s1" name="Test Suite" source="/Users/parinceee/Desktop/Tester-PO/LEARN-space/learn-Robot/robot-poley/swag-labs/test_suite">
+<suite id="s1-s1-s1" name="Member Buy Success" source="/Users/parinceee/Desktop/Tester-PO/LEARN-space/learn-Robot/robot-poley/swag-labs/test_suite/member_buy_success.robot">
+<test id="s1-s1-s1-t1" name="TC_001" line="8">
+<kw name="Use TC unconstant" library="create_variable" type="SETUP">
+<kw name="Set Variable" library="BuiltIn">
+<var>${test_data}</var>
+<arg>${Data.${TEST_NAME}}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240513 23:05:55.324" level="INFO">${test_data} = {'user': {'user_name': 'standard_user', 'pwd': 'secret_sauce'}, 'config': {'server': 'https://www.saucedemo.com', 'browser': 'gc'}, 'information': {'first_name': 'Parinchat', 'last_name': 'Juntaworn',...</msg>
+<status status="PASS" starttime="20240513 23:05:55.324" endtime="20240513 23:05:55.325"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${test_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240513 23:05:55.325" level="INFO">{'user': {'user_name': 'standard_user', 'pwd': 'secret_sauce'}, 'config': {'server': 'https://www.saucedemo.com', 'browser': 'gc'}, 'information': {'first_name': 'Parinchat', 'last_name': 'Juntaworn', 'zip': 11000}}</msg>
+<status status="PASS" starttime="20240513 23:05:55.325" endtime="20240513 23:05:55.325"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${Test_Data}</arg>
+<arg>${test_data}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240513 23:05:55.326" level="INFO">${Test_Data} = {'user': {'user_name': 'standard_user', 'pwd': 'secret_sauce'}, 'config': {'server': 'https://www.saucedemo.com', 'browser': 'gc'}, 'information': {'first_name': 'Parinchat', 'last_name': 'Juntaworn',...</msg>
+<status status="PASS" starttime="20240513 23:05:55.325" endtime="20240513 23:05:55.326"/>
+</kw>
+<status status="PASS" starttime="20240513 23:05:55.323" endtime="20240513 23:05:55.326"/>
+</kw>
+<kw name="Open Browser With URL" library="open_keyword">
+<kw name="Open Browser saucedemo" library="open_browser">
+<kw name="Get Environment Variable" library="OperatingSystem">
+<var>${home}</var>
+<arg>HOME</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<msg timestamp="20240513 23:05:55.327" level="INFO">${home} = /Users/parinceee</msg>
+<status status="PASS" starttime="20240513 23:05:55.327" endtime="20240513 23:05:55.327"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Data.${TEST_NAME}.config.server}</arg>
+<arg>${Data.${TEST_NAME}.config.browser}</arg>
+<arg>options=binary_location="/${home}/Documents/Chrome/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing";add_experimental_option("detach", True)</arg>
+<arg>executable_path=/${home}/Documents/Chrome/chromedriver</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240513 23:05:55.329" level="INFO">Opening browser 'gc' to base url 'https://www.saucedemo.com'.</msg>
+<status status="PASS" starttime="20240513 23:05:55.327" endtime="20240513 23:05:59.038"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240513 23:05:59.039" endtime="20240513 23:05:59.356"/>
+</kw>
+<status status="PASS" starttime="20240513 23:05:55.327" endtime="20240513 23:05:59.356"/>
+</kw>
+<status status="PASS" starttime="20240513 23:05:55.326" endtime="20240513 23:05:59.357"/>
+</kw>
+<kw name="Member Login" library="login_keyword">
+<kw name="Login Page Should Be Open" library="login_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_login_page}[login_logo]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:05:59.358" endtime="20240513 23:05:59.385"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_login_page}[user_name_input]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:05:59.386" endtime="20240513 23:05:59.401"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_login_page}[password_input]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:05:59.401" endtime="20240513 23:05:59.414"/>
+</kw>
+<kw name="Page Should Contain Button" library="SeleniumLibrary">
+<arg>${dict_login_page}[login_button]</arg>
+<doc>Verifies button ``locator`` is found from current page.</doc>
+<msg timestamp="20240513 23:05:59.426" level="INFO">Current page contains input 'id=login-button'.</msg>
+<status status="PASS" starttime="20240513 23:05:59.414" endtime="20240513 23:05:59.427"/>
+</kw>
+<kw name="Screenshot" library="open_browser">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>TC_01_member_buy_success_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240513 23:05:59.668" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="TC_01_member_buy_success_1.png"&gt;&lt;img src="TC_01_member_buy_success_1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20240513 23:05:59.429" endtime="20240513 23:05:59.668"/>
+</kw>
+<status status="PASS" starttime="20240513 23:05:59.427" endtime="20240513 23:05:59.668"/>
+</kw>
+<status status="PASS" starttime="20240513 23:05:59.358" endtime="20240513 23:05:59.668"/>
+</kw>
+<kw name="Valid Username" library="login_page">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_login_page}[user_name_input]</arg>
+<arg>${Test_Data.user.user_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240513 23:05:59.670" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<status status="PASS" starttime="20240513 23:05:59.669" endtime="20240513 23:06:00.056"/>
+</kw>
+<kw name="Element Attribute Value Should Be" library="SeleniumLibrary">
+<arg>${dict_login_page}[user_name_input]</arg>
+<arg>value</arg>
+<arg>${Test_Data.user.user_name}</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<msg timestamp="20240513 23:06:00.068" level="INFO">Element 'id=user-name' attribute 'value' contains value 'standard_user'.</msg>
+<status status="PASS" starttime="20240513 23:06:00.056" endtime="20240513 23:06:00.068"/>
+</kw>
+<kw name="Screenshot" library="open_browser">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>TC_01_member_buy_success_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240513 23:06:00.284" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="TC_01_member_buy_success_2.png"&gt;&lt;img src="TC_01_member_buy_success_2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20240513 23:06:00.069" endtime="20240513 23:06:00.284"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:00.068" endtime="20240513 23:06:00.284"/>
+</kw>
+<status status="PASS" starttime="20240513 23:05:59.668" endtime="20240513 23:06:00.285"/>
+</kw>
+<kw name="Input Password" library="login_page">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_login_page}[password_input]</arg>
+<arg>${Test_Data.user.pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240513 23:06:00.287" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20240513 23:06:00.285" endtime="20240513 23:06:00.377"/>
+</kw>
+<kw name="Element Attribute Value Should Be" library="SeleniumLibrary">
+<arg>${dict_login_page}[password_input]</arg>
+<arg>value</arg>
+<arg>${Test_Data.user.pwd}</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<msg timestamp="20240513 23:06:00.392" level="INFO">Element 'id=password' attribute 'value' contains value 'secret_sauce'.</msg>
+<status status="PASS" starttime="20240513 23:06:00.378" endtime="20240513 23:06:00.392"/>
+</kw>
+<kw name="Screenshot" library="open_browser">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>TC_01_member_buy_success_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240513 23:06:00.611" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="TC_01_member_buy_success_3.png"&gt;&lt;img src="TC_01_member_buy_success_3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20240513 23:06:00.393" endtime="20240513 23:06:00.611"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:00.392" endtime="20240513 23:06:00.611"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:00.285" endtime="20240513 23:06:00.611"/>
+</kw>
+<kw name="Click Login Button" library="login_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${dict_login_page}[login_button]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240513 23:06:00.612" level="INFO">Clicking button 'id=login-button'.</msg>
+<status status="PASS" starttime="20240513 23:06:00.612" endtime="20240513 23:06:00.702"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:00.612" endtime="20240513 23:06:00.703"/>
+</kw>
+<kw name="Inventory Page Should Be Open" library="inventory_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[hamburger_button]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:00.704" endtime="20240513 23:06:00.725"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[logo_swaglabs]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:00.725" endtime="20240513 23:06:00.741"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[cart_button]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:00.741" endtime="20240513 23:06:00.754"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[product_h1]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:00.755" endtime="20240513 23:06:00.767"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[dropdown]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:00.767" endtime="20240513 23:06:00.780"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[product_card]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:00.780" endtime="20240513 23:06:00.792"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:00.703" endtime="20240513 23:06:00.792"/>
+</kw>
+<status status="PASS" starttime="20240513 23:05:59.357" endtime="20240513 23:06:00.792"/>
+</kw>
+<kw name="Add product to shopping cart in inventory page" library="inventory_keyword">
+<kw name="Set count cart" library="set_count_cart">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${count_cart}</var>
+<arg>Page Should Contain Element</arg>
+<arg>${dict_set_count_cart_page}[shopping_cart]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${dict_set_count_cart_page}[shopping_cart]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20240513 23:06:01.091" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20240513 23:06:01.091" level="FAIL">Page should have contained element '//span[@class='shopping_cart_badge']' but did not.</msg>
+<status status="FAIL" starttime="20240513 23:06:00.794" endtime="20240513 23:06:01.095"/>
+</kw>
+<msg timestamp="20240513 23:06:01.096" level="INFO">${count_cart} = False</msg>
+<status status="PASS" starttime="20240513 23:06:00.793" endtime="20240513 23:06:01.096"/>
+</kw>
+<if>
+<branch type="IF" condition="${count_cart}">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${count_of_cart}</var>
+<arg>${dict_set_count_cart_page}[shopping_cart]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20240513 23:06:01.096" endtime="20240513 23:06:01.096"/>
+</kw>
+<status status="NOT RUN" starttime="20240513 23:06:01.096" endtime="20240513 23:06:01.096"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" library="BuiltIn">
+<var>${count_of_cart}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240513 23:06:01.097" level="INFO">${count_of_cart} = 0</msg>
+<status status="PASS" starttime="20240513 23:06:01.097" endtime="20240513 23:06:01.097"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:01.096" endtime="20240513 23:06:01.097"/>
+</branch>
+<status status="PASS" starttime="20240513 23:06:01.096" endtime="20240513 23:06:01.097"/>
+</if>
+<kw name="Screenshot" library="open_browser">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>TC_01_member_buy_success_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240513 23:06:01.399" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="TC_01_member_buy_success_4.png"&gt;&lt;img src="TC_01_member_buy_success_4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20240513 23:06:01.097" endtime="20240513 23:06:01.399"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:01.097" endtime="20240513 23:06:01.399"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:00.793" endtime="20240513 23:06:01.399"/>
+</kw>
+<kw name="Add Sauce Labs Backpack 1 ea" library="inventory_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[sauce_labs_backpack_title]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:01.399" endtime="20240513 23:06:01.412"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[sauce_labs_backpack_price]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:01.412" endtime="20240513 23:06:01.423"/>
+</kw>
+<kw name="Page Should Contain Button" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[sauce_labs_backpack_add_cart_bt]</arg>
+<doc>Verifies button ``locator`` is found from current page.</doc>
+<msg timestamp="20240513 23:06:01.441" level="INFO">Current page contains button '//div[@class='inventory_item' and .//div[text()='Sauce Labs Backpack'] and .//div[@class='inventory_item_price'][text()='29.99']]//button[text()='Add to cart']'.</msg>
+<status status="PASS" starttime="20240513 23:06:01.423" endtime="20240513 23:06:01.441"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[sauce_labs_backpack_add_cart_bt]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240513 23:06:01.442" level="INFO">Clicking button '//div[@class='inventory_item' and .//div[text()='Sauce Labs Backpack'] and .//div[@class='inventory_item_price'][text()='29.99']]//button[text()='Add to cart']'.</msg>
+<status status="PASS" starttime="20240513 23:06:01.441" endtime="20240513 23:06:01.477"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:01.399" endtime="20240513 23:06:01.477"/>
+</kw>
+<kw name="Add Sauce Labs Fleece Jacket 1 ea" library="inventory_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[sauce_labs_fleece_jacket_title]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:01.478" endtime="20240513 23:06:01.489"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[sauce_labs_fleece_jacket_price]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:01.490" endtime="20240513 23:06:01.501"/>
+</kw>
+<kw name="Page Should Contain Button" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[sauce_labs_fleece_jacket_add_cart_bt]</arg>
+<doc>Verifies button ``locator`` is found from current page.</doc>
+<msg timestamp="20240513 23:06:01.521" level="INFO">Current page contains button '//div[@class='inventory_item' and .//div[text()='Sauce Labs Fleece Jacket'] and .//div[@class='inventory_item_price'][text()='49.99']]//button[text()='Add to cart']'.</msg>
+<status status="PASS" starttime="20240513 23:06:01.501" endtime="20240513 23:06:01.521"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[sauce_labs_fleece_jacket_add_cart_bt]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240513 23:06:01.522" level="INFO">Clicking button '//div[@class='inventory_item' and .//div[text()='Sauce Labs Fleece Jacket'] and .//div[@class='inventory_item_price'][text()='49.99']]//button[text()='Add to cart']'.</msg>
+<status status="PASS" starttime="20240513 23:06:01.521" endtime="20240513 23:06:01.555"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:01.477" endtime="20240513 23:06:01.555"/>
+</kw>
+<kw name="Click shopping cart" library="inventory_page">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${dict_inventory_page}[shopping_cart_bt]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20240513 23:06:01.556" level="INFO">Clicking link '//a[@class='shopping_cart_link']'.</msg>
+<status status="PASS" starttime="20240513 23:06:01.555" endtime="20240513 23:06:01.588"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:01.555" endtime="20240513 23:06:01.588"/>
+</kw>
+<kw name="Verify Your Cart page is show" library="checkout_your_cart_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[your_cart_text]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:01.589" endtime="20240513 23:06:01.600"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[shopping_cart_number]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:01.600" endtime="20240513 23:06:01.612"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:01.588" endtime="20240513 23:06:01.612"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:00.793" endtime="20240513 23:06:01.612"/>
+</kw>
+<kw name="Checkout in your cart page" library="yourcart_keyword">
+<kw name="Verify product details is same inventory page (Sauce Labs Fleece Jacket)" library="checkout_your_cart_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[sauce_labs_fleece_jacket_qty]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:01.613" endtime="20240513 23:06:01.624"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[sauce_labs_fleece_jacket_qty]</arg>
+<arg>1</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20240513 23:06:01.625" level="INFO">Verifying element '//div[@class='cart_item' and .//div[text()='Sauce Labs Fleece Jacket']]//*[@class='cart_quantity']' contains exact text '1'.</msg>
+<status status="PASS" starttime="20240513 23:06:01.624" endtime="20240513 23:06:01.639"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[sauce_labs_fleece_jacket_title]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:01.639" endtime="20240513 23:06:01.650"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[sauce_labs_fleece_jacket_price]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:01.651" endtime="20240513 23:06:01.662"/>
+</kw>
+<kw name="Page Should Contain Button" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[sauce_labs_fleece_jacket_rm_bt]</arg>
+<arg>Remove</arg>
+<doc>Verifies button ``locator`` is found from current page.</doc>
+<msg timestamp="20240513 23:06:01.682" level="INFO">Current page contains button 'id=remove-sauce-labs-fleece-jacket'.</msg>
+<status status="PASS" starttime="20240513 23:06:01.663" endtime="20240513 23:06:01.682"/>
+</kw>
+<kw name="Screenshot" library="open_browser">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>TC_01_member_buy_success_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240513 23:06:01.881" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="TC_01_member_buy_success_5.png"&gt;&lt;img src="TC_01_member_buy_success_5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20240513 23:06:01.683" endtime="20240513 23:06:01.882"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:01.682" endtime="20240513 23:06:01.882"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:01.613" endtime="20240513 23:06:01.882"/>
+</kw>
+<kw name="Verify product details is same inventory page (Sauce Labs Backpack)" library="checkout_your_cart_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[sauce_labs_backpack_qty]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:01.882" endtime="20240513 23:06:01.894"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[sauce_labs_backpack_qty]</arg>
+<arg>1</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20240513 23:06:01.895" level="INFO">Verifying element '//div[@class='cart_item' and .//div[text()='Sauce Labs Backpack']]//*[@class='cart_quantity']' contains exact text '1'.</msg>
+<status status="PASS" starttime="20240513 23:06:01.894" endtime="20240513 23:06:01.904"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[sauce_labs_backpack_title]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:01.904" endtime="20240513 23:06:01.915"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[sauce_labs_backpack_price]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:01.915" endtime="20240513 23:06:01.926"/>
+</kw>
+<kw name="Page Should Contain Button" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[sauce_labs_backpack_rm_bt]</arg>
+<arg>Remove</arg>
+<doc>Verifies button ``locator`` is found from current page.</doc>
+<msg timestamp="20240513 23:06:01.946" level="INFO">Current page contains button 'id=remove-sauce-labs-backpack'.</msg>
+<status status="PASS" starttime="20240513 23:06:01.926" endtime="20240513 23:06:01.947"/>
+</kw>
+<kw name="Screenshot" library="open_browser">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>TC_01_member_buy_success_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240513 23:06:02.145" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="TC_01_member_buy_success_6.png"&gt;&lt;img src="TC_01_member_buy_success_6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20240513 23:06:01.947" endtime="20240513 23:06:02.145"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:01.947" endtime="20240513 23:06:02.146"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:01.882" endtime="20240513 23:06:02.146"/>
+</kw>
+<kw name="Click Checkout Button" library="checkout_your_cart_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${dict_checkout_your_cart_page}[checkout_bt]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240513 23:06:02.147" level="INFO">Clicking button 'id=checkout'.</msg>
+<status status="PASS" starttime="20240513 23:06:02.146" endtime="20240513 23:06:02.185"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:02.146" endtime="20240513 23:06:02.185"/>
+</kw>
+<kw name="Verify Your Information page is show" library="checkout_information_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_information_page}[your_information_text]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:02.186" endtime="20240513 23:06:02.197"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${dict_checkout_information_page}[information_form]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20240513 23:06:02.205" level="INFO">Current page contains element '//div[@class='checkout_info_container']//div[@class='checkout_info']'.</msg>
+<status status="PASS" starttime="20240513 23:06:02.197" endtime="20240513 23:06:02.205"/>
+</kw>
+<kw name="Screenshot" library="open_browser">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>TC_01_member_buy_success_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240513 23:06:02.407" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="TC_01_member_buy_success_7.png"&gt;&lt;img src="TC_01_member_buy_success_7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20240513 23:06:02.206" endtime="20240513 23:06:02.407"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:02.206" endtime="20240513 23:06:02.407"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:02.185" endtime="20240513 23:06:02.408"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:01.612" endtime="20240513 23:06:02.408"/>
+</kw>
+<kw name="Enter your Information in Your Information page" library="information_keyword">
+<kw name="Input valid data in First name text field" library="checkout_information_page">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_checkout_information_page}[first_name_input]</arg>
+<arg>${Data.${TEST_NAME}.information.first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240513 23:06:02.410" level="INFO">Typing text 'Parinchat' into text field 'id=first-name'.</msg>
+<status status="PASS" starttime="20240513 23:06:02.409" endtime="20240513 23:06:02.508"/>
+</kw>
+<kw name="Element Attribute Value Should Be" library="SeleniumLibrary">
+<arg>${dict_checkout_information_page}[first_name_input]</arg>
+<arg>value</arg>
+<arg>${Data.${TEST_NAME}.information.first_name}</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<msg timestamp="20240513 23:06:02.525" level="INFO">Element 'id=first-name' attribute 'value' contains value 'Parinchat'.</msg>
+<status status="PASS" starttime="20240513 23:06:02.508" endtime="20240513 23:06:02.525"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:02.409" endtime="20240513 23:06:02.526"/>
+</kw>
+<kw name="Input valid data in Last name text field" library="checkout_information_page">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_checkout_information_page}[last_name_input]</arg>
+<arg>${Data.${TEST_NAME}.information.last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240513 23:06:02.531" level="INFO">Typing text 'Juntaworn' into text field 'id=last-name'.</msg>
+<status status="PASS" starttime="20240513 23:06:02.528" endtime="20240513 23:06:02.615"/>
+</kw>
+<kw name="Element Attribute Value Should Be" library="SeleniumLibrary">
+<arg>${dict_checkout_information_page}[last_name_input]</arg>
+<arg>value</arg>
+<arg>${Data.${TEST_NAME}.information.last_name}</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<msg timestamp="20240513 23:06:02.642" level="INFO">Element 'id=last-name' attribute 'value' contains value 'Juntaworn'.</msg>
+<status status="PASS" starttime="20240513 23:06:02.615" endtime="20240513 23:06:02.642"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:02.526" endtime="20240513 23:06:02.642"/>
+</kw>
+<kw name="Input valid data in Zip/Postal Code text field" library="checkout_information_page">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${dict_checkout_information_page}[postal_code_input]</arg>
+<arg>${Data.${TEST_NAME}.information.zip}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240513 23:06:02.644" level="INFO">Typing text '11000' into text field 'id=postal-code'.</msg>
+<status status="PASS" starttime="20240513 23:06:02.643" endtime="20240513 23:06:02.747"/>
+</kw>
+<kw name="Element Attribute Value Should Be" library="SeleniumLibrary">
+<arg>${dict_checkout_information_page}[postal_code_input]</arg>
+<arg>value</arg>
+<arg>${Data.${TEST_NAME}.information.zip}</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<msg timestamp="20240513 23:06:02.758" level="INFO">Element 'id=postal-code' attribute 'value' contains value '11000'.</msg>
+<status status="PASS" starttime="20240513 23:06:02.747" endtime="20240513 23:06:02.759"/>
+</kw>
+<kw name="Screenshot" library="open_browser">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>TC_01_member_buy_success_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240513 23:06:02.979" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="TC_01_member_buy_success_8.png"&gt;&lt;img src="TC_01_member_buy_success_8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20240513 23:06:02.760" endtime="20240513 23:06:02.979"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:02.759" endtime="20240513 23:06:02.979"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:02.643" endtime="20240513 23:06:02.979"/>
+</kw>
+<kw name="Click Continue button" library="checkout_information_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${dict_checkout_information_page}[continue_bt]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240513 23:06:02.980" level="INFO">Clicking element 'id=continue'.</msg>
+<status status="PASS" starttime="20240513 23:06:02.980" endtime="20240513 23:06:03.029"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:02.979" endtime="20240513 23:06:03.029"/>
+</kw>
+<kw name="Verify &quot;Checkout: Overview&quot; page is show" library="checkout_overview_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_overview_labs_page}[overview_text]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:03.030" endtime="20240513 23:06:03.064"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:03.030" endtime="20240513 23:06:03.064"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:02.408" endtime="20240513 23:06:03.065"/>
+</kw>
+<kw name="Re-check your product list in Overview page" library="overview_keyword">
+<kw name="Verify product details in overview is same inventory page (Sauce Labs Backpack)" library="checkout_overview_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_overview_labs_page}[sauce_labs_backpack_qty]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:03.065" endtime="20240513 23:06:03.077"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${dict_checkout_overview_labs_page}[sauce_labs_backpack_qty]</arg>
+<arg>1</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20240513 23:06:03.077" level="INFO">Verifying element '//div[@class='cart_item' and .//div[text()='Sauce Labs Backpack']]//*[@class='cart_quantity']' contains exact text '1'.</msg>
+<status status="PASS" starttime="20240513 23:06:03.077" endtime="20240513 23:06:03.089"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_overview_labs_page}[sauce_labs_backpack_title]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:03.089" endtime="20240513 23:06:03.101"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_overview_labs_page}[sauce_labs_backpack_price]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:03.101" endtime="20240513 23:06:03.110"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:03.065" endtime="20240513 23:06:03.110"/>
+</kw>
+<kw name="Verify product details in overview is same inventory page (Sauce Labs Fleece Jacket)" library="checkout_overview_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_overview_labs_page}[sauce_labs_fleece_jacket_qty]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:03.110" endtime="20240513 23:06:03.119"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${dict_checkout_overview_labs_page}[sauce_labs_fleece_jacket_qty]</arg>
+<arg>1</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20240513 23:06:03.120" level="INFO">Verifying element '//div[@class='cart_item' and .//div[text()='Sauce Labs Fleece Jacket']]//*[@class='cart_quantity']' contains exact text '1'.</msg>
+<status status="PASS" starttime="20240513 23:06:03.119" endtime="20240513 23:06:03.129"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_overview_labs_page}[sauce_labs_fleece_jacket_title]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:03.129" endtime="20240513 23:06:03.141"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_overview_labs_page}[sauce_labs_fleece_jacket_price]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:03.141" endtime="20240513 23:06:03.150"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:03.110" endtime="20240513 23:06:03.150"/>
+</kw>
+<kw name="Verify Price Total in overview" library="checkout_overview_page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${item_total}</var>
+<arg>${product_sauce_labs_backpack}[price] + ${product_sauce_labs_fleece_jacket}[price]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240513 23:06:03.151" level="INFO">${item_total} = 79.98</msg>
+<status status="PASS" starttime="20240513 23:06:03.151" endtime="20240513 23:06:03.151"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>//div[@data-test='subtotal-label'][text()='Item total: $' and text()='${item_total}']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20240513 23:06:03.160" level="INFO">Current page contains element '//div[@data-test='subtotal-label'][text()='Item total: $' and text()='79.98']'.</msg>
+<status status="PASS" starttime="20240513 23:06:03.152" endtime="20240513 23:06:03.160"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${tax_from_item_total}</var>
+<arg>${item_total} * ${tax}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240513 23:06:03.160" level="INFO">${tax_from_item_total} = 6.3984000000000005</msg>
+<status status="PASS" starttime="20240513 23:06:03.160" endtime="20240513 23:06:03.160"/>
+</kw>
+<kw name="Format String" library="String">
+<var>${tax_from_item_total_format}</var>
+<arg>{:.2f}</arg>
+<arg>${tax_from_item_total}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<msg timestamp="20240513 23:06:03.161" level="INFO">${tax_from_item_total_format} = 6.40</msg>
+<status status="PASS" starttime="20240513 23:06:03.160" endtime="20240513 23:06:03.161"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>//div[@data-test='tax-label'][text()='Tax: $' and text()='${tax_from_item_total_format}']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20240513 23:06:03.169" level="INFO">Current page contains element '//div[@data-test='tax-label'][text()='Tax: $' and text()='6.40']'.</msg>
+<status status="PASS" starttime="20240513 23:06:03.161" endtime="20240513 23:06:03.169"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${total_with_tax}</var>
+<arg>${item_total} + ${tax_from_item_total_format}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240513 23:06:03.170" level="INFO">${total_with_tax} = 86.38000000000001</msg>
+<status status="PASS" starttime="20240513 23:06:03.169" endtime="20240513 23:06:03.170"/>
+</kw>
+<kw name="Format String" library="String">
+<var>${total_with_tax_format}</var>
+<arg>{:.2f}</arg>
+<arg>${total_with_tax}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<msg timestamp="20240513 23:06:03.170" level="INFO">${total_with_tax_format} = 86.38</msg>
+<status status="PASS" starttime="20240513 23:06:03.170" endtime="20240513 23:06:03.171"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>//div[@data-test='total-label'][text()='Total: $' and text()='${total_with_tax_format}']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20240513 23:06:03.179" level="INFO">Current page contains element '//div[@data-test='total-label'][text()='Total: $' and text()='86.38']'.</msg>
+<status status="PASS" starttime="20240513 23:06:03.171" endtime="20240513 23:06:03.179"/>
+</kw>
+<kw name="Screenshot" library="open_browser">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>TC_01_member_buy_success_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240513 23:06:03.387" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="TC_01_member_buy_success_9.png"&gt;&lt;img src="TC_01_member_buy_success_9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20240513 23:06:03.180" endtime="20240513 23:06:03.387"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:03.179" endtime="20240513 23:06:03.388"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:03.151" endtime="20240513 23:06:03.388"/>
+</kw>
+<kw name="Click Finish Button" library="checkout_overview_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${dict_checkout_overview_labs_page}[finish_bt]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240513 23:06:03.389" level="INFO">Clicking button 'id=finish'.</msg>
+<status status="PASS" starttime="20240513 23:06:03.388" endtime="20240513 23:06:03.429"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:03.388" endtime="20240513 23:06:03.429"/>
+</kw>
+<kw name="Verify Checkout: Complete page" library="checkout_complete_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_complete_page}[complete_text]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:03.430" endtime="20240513 23:06:03.442"/>
+</kw>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_complete_page}[cart_number]</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<msg timestamp="20240513 23:06:03.449" level="INFO">Element '//span[@class='shopping_cart_badge']' did not exist.</msg>
+<status status="PASS" starttime="20240513 23:06:03.442" endtime="20240513 23:06:03.449"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_complete_page}[image]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:03.449" endtime="20240513 23:06:03.461"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${dict_checkout_complete_page}[text_h2]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240513 23:06:03.461" endtime="20240513 23:06:03.473"/>
+</kw>
+<kw name="Page Should Contain Button" library="SeleniumLibrary">
+<arg>${dict_checkout_complete_page}[back_home_bt]</arg>
+<doc>Verifies button ``locator`` is found from current page.</doc>
+<msg timestamp="20240513 23:06:03.492" level="INFO">Current page contains button 'id=back-to-products'.</msg>
+<status status="PASS" starttime="20240513 23:06:03.474" endtime="20240513 23:06:03.492"/>
+</kw>
+<kw name="Screenshot" library="open_browser">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>TC_01_member_buy_success_{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20240513 23:06:03.677" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="TC_01_member_buy_success_10.png"&gt;&lt;img src="TC_01_member_buy_success_10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20240513 23:06:03.493" endtime="20240513 23:06:03.677"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:03.492" endtime="20240513 23:06:03.677"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:03.429" endtime="20240513 23:06:03.677"/>
+</kw>
+<status status="PASS" starttime="20240513 23:06:03.065" endtime="20240513 23:06:03.677"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240513 23:06:03.678" endtime="20240513 23:06:03.832"/>
+</kw>
+<status status="PASS" starttime="20240513 23:05:55.323" endtime="20240513 23:06:03.832"/>
+</test>
+<status status="PASS" starttime="20240513 23:05:55.166" endtime="20240513 23:06:03.834"/>
+</suite>
+<status status="PASS" starttime="20240513 23:05:55.165" endtime="20240513 23:06:03.835"/>
+</suite>
+<status status="PASS" starttime="20240513 23:05:55.153" endtime="20240513 23:06:03.836"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Swag-Labs">Swag-Labs</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test Suite">Swag-Labs.Test Suite</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Member Buy Success">Swag-Labs.Test Suite.Member Buy Success</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

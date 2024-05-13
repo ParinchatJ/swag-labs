@@ -8,9 +8,9 @@
 ...     sauce_labs_fleece_jacket_qty=//div[@class='cart_item' and .//div[text()='${product_sauce_labs_fleece_jacket}[title]']]//*[@class='cart_quantity']
 ...     sauce_labs_fleece_jacket_title=//div[@class='cart_item' and .//div[text()='${product_sauce_labs_fleece_jacket}[title]']]//div[text()='${product_sauce_labs_fleece_jacket}[title]'] 
 ...     sauce_labs_fleece_jacket_price=//div[@class='cart_item' and .//div[text()='${product_sauce_labs_fleece_jacket}[title]']]//*[text()='$' and text() = '${product_sauce_labs_fleece_jacket}[price]']
-# ...     item_total=//div[@data-test='subtotal-label'][text()='Item total: $' and text()='${item_total}']
-# ...     tax_item=//div[@data-test='tax-label'][text()='Tax: $' and text()='${tax_from_item_total_format}']
-# ...     total_price=//div[@data-test='total-label'][text()='Total: $' and text()='${total_with_tax_format}']
+...     item_total_templete=//div[@data-test='subtotal-label'][text()='Item total: $' and text()='{item_total}']
+...     tax_item_templete=//div[@data-test='tax-label'][text()='Tax: $' and text()='{tax_from_item_total_format}']
+...     total_price_templete=//div[@data-test='total-label'][text()='Total: $' and text()='{total_with_tax_format}']
 ...     finish_bt=id=finish
 
 
@@ -46,17 +46,23 @@ Verify Price Total in overview
     #step 5.5.1: Verify Item total price (if item price is same inventory page
         #To cal value price from every page (use User keyword)
     ${item_total}                       evaluate                        ${product_sauce_labs_backpack}[price] + ${product_sauce_labs_fleece_jacket}[price]
+    # Format str to use easy xpath
+    ${xpath_item_total}                 Format String                   ${dict_checkout_overview_labs_page}[item_total_templete]                 item_total=${item_total}
         #To check value that cal (item_total) is equal to element
-    Page Should Contain Element         //div[@data-test='subtotal-label'][text()='Item total: $' and text()='${item_total}']
+    Page Should Contain Element         ${xpath_item_total}
     #step 5.5.2: Verify Tax (same pattern item_total)
     ${tax_from_item_total}              evaluate                        ${item_total} * ${tax}
     ${tax_from_item_total_format}       Format String                   {:.2f}                          ${tax_from_item_total}
-    Page Should Contain Element         //div[@data-test='tax-label'][text()='Tax: $' and text()='${tax_from_item_total_format}']   
+    # Format str to use easy xpath
+    ${xpath_tax_from_item_total}        Format String                   ${dict_checkout_overview_labs_page}[tax_item_templete]                   tax_from_item_total_format=${tax_from_item_total_format}
+    Page Should Contain Element         ${xpath_tax_from_item_total}
 
     #step 5.5.3: Verify Total Price (Item total price + Tax) (same pattern item_total)
     ${total_with_tax}                   evaluate                        ${item_total} + ${tax_from_item_total_format}
     ${total_with_tax_format}            Format String                   {:.2f}                          ${total_with_tax}
-    Page Should Contain Element         //div[@data-test='total-label'][text()='Total: $' and text()='${total_with_tax_format}']
+    # Format str to use easy xpath
+    ${xpath_total_with_tax}             Format String                   ${dict_checkout_overview_labs_page}[total_price_templete]                total_with_tax_format=${total_with_tax_format}
+    Page Should Contain Element         ${xpath_total_with_tax}
     Screenshot
 
 Click Finish Button

@@ -23,17 +23,17 @@ Login Page Should Be Open
 
 Valid Username
     #step 1.1: Enter valid data in Username text field
-    Input Text                          ${dict_login_page}[user_name_input]                    ${Data.${TEST_NAME}.user.user_name}
+    Input Text                          ${dict_login_page}[user_name_input]                    ${Test_Data.user.user_name}
     #step 1.1.1: Varify Username have a value
-    Element attribute Value Should Be   ${dict_login_page}[user_name_input]                    value                     ${Data.${TEST_NAME}.user.user_name}
+    Element attribute Value Should Be   ${dict_login_page}[user_name_input]                    value                    ${Test_Data.user.user_name}
     #! ถ้าใช้ Textfield Value Should Be ไม่ได้ เพราะสมมุติกรอกแค่ user มันมีส่วนประกอบ user อยู่ใน ${VALID_USER} มันก็จะผ่าน ให้ใช่้ Element attribute Value Should Be หรือ Textfield Value Should Be
     Screenshot
 
 Input Password
     #step 1.2: Enter valid data in Password text field 
-    Input Text                          ${dict_login_page}[password_input]                     ${Data.${TEST_NAME}.user.pwd}
+    Input Text                          ${dict_login_page}[password_input]                     ${Test_Data.user.pwd}
     #step 1.2.1: Varify Password have a value
-    Element attribute Value Should Be   ${dict_login_page}[password_input]                     value                   ${Data.${TEST_NAME}.user.pwd}
+    Element attribute Value Should Be   ${dict_login_page}[password_input]                     value                    ${Test_Data.user.pwd}
     Screenshot
 
 Click Login Button

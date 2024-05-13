@@ -1,5 +1,6 @@
 *** Settings ***
 Resource            ${CURDIR}${/}..${/}config${/}import.resource
+Test Setup          Use TC unconstant
  
 
 *** Test Cases ***
