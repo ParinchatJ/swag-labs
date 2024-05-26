@@ -16,11 +16,12 @@ Data:
       data_test: 
         sauce_labs_backpack:
           title: Sauce Labs Backpack
-          price: 29.99  
+          price: 29.99
+          qty: 1  
         sauce_labs_fleece_jacket:
           title: Sauce Labs Fleece Jacket
           price: 49.99
-        tax: 8/100
+          qty: 1
     step_04_verify_information_page:
       input_data:
         first_name: Parinchat
@@ -32,8 +33,7 @@ Data:
         zip:  11000
     
 
-    #! กำลังแก้รูปแบบ data และตามแก้ตรงที่ดึงมาใช้ให้หมด 
-    #? 001Q&A: ถามพี่โอเล่ว่าถ้า input data เหมือนกันเราต้องแยก step ตรง yaml ไหม 
+ 
 
     
     

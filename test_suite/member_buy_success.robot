@@ -1,6 +1,7 @@
 *** Settings ***
 Resource            ${CURDIR}${/}..${/}config${/}import.resource
-Test Setup          Use TC unconstant
+Test Setup          Prepare test data
+Test Teardown       Prepare test teardown
  
 
 *** Test Cases ***
@@ -19,4 +20,3 @@ E2Eflow_member_buy_products_success
     # step 5: Re-check your product list before confirm checkout in Checkout: Overview page and # step 6: Verify Checkout: Complete! page
     Re-check your product list in Overview page
 
-    Close Browser

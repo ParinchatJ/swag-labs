@@ -31,6 +31,6 @@ Resource          ../keywords/overview_keyword.resource
 
 *** Variables ***
 
-&{product_sauce_labs_backpack}              title=Sauce Labs Backpack         price=29.99     
-&{product_sauce_labs_fleece_jacket}         title=Sauce Labs Fleece Jacket    price=49.99   
+# &{product_sauce_labs_backpack}              title=Sauce Labs Backpack         price=29.99     
+# &{product_sauce_labs_fleece_jacket}         title=Sauce Labs Fleece Jacket    price=49.99   
 ${tax}                                      8/100 
