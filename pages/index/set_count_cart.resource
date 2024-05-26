@@ -14,10 +14,9 @@ Set count cart
                 ${count_of_cart}     Set Variable       0
         END
 
-        Screenshot
+# Check increase cart when add item
+Verify Cart plus one item                           
+        Wait Until Element Is Visible               ${dict_set_count_cart_page}[shopping_cart]
+        ${last_count_of_cart}                       Get Text                            ${dict_set_count_cart_page}[shopping_cart]
 
-#  # Check increase cart when add item
-#             Wait Until Element Is Visible               //span[@class='shopping_cart_badge']
-#             ${last_count_of_cart}                       Get Text                            //span[@class='shopping_cart_badge']
-
-#             Should Be True    ${count_of_cart} + 1 == ${last_count_of_cart}
+        Should Be True    ${count_of_cart} + 1 == ${last_count_of_cart}

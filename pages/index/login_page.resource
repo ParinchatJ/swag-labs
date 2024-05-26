@@ -21,20 +21,19 @@ Login Page Should Be Open
     Page Should Contain Button          ${dict_login_page}[login_button]
     Screenshot
 
-Valid Username
+Login member
+    [Arguments]     ${input_data}       ${expected_data}
     #step 1.1: Enter valid data in Username text field
-    Input Text                          ${dict_login_page}[user_name_input]                    ${Test_Data.user.user_name}
+    Input Text                          ${dict_login_page}[user_name_input]                    ${input_data.user_name}
     #step 1.1.1: Varify Username have a value
-    Element attribute Value Should Be   ${dict_login_page}[user_name_input]                    value                    ${Test_Data.user.user_name}
+    Element attribute Value Should Be   ${dict_login_page}[user_name_input]                    value                    ${expected_data.user_name}
     #! ถ้าใช้ Textfield Value Should Be ไม่ได้ เพราะสมมุติกรอกแค่ user มันมีส่วนประกอบ user อยู่ใน ${VALID_USER} มันก็จะผ่าน ให้ใช่้ Element attribute Value Should Be หรือ Textfield Value Should Be
     Screenshot
 
-Input Password
     #step 1.2: Enter valid data in Password text field 
-    Input Text                          ${dict_login_page}[password_input]                     ${Test_Data.user.pwd}
+    Input Text                          ${dict_login_page}[password_input]                     ${input_data.pwd}
     #step 1.2.1: Varify Password have a value
-    Element attribute Value Should Be   ${dict_login_page}[password_input]                     value                    ${Test_Data.user.pwd}
+    Element attribute Value Should Be   ${dict_login_page}[password_input]                     value                    ${expected_data.pwd}
     Screenshot
 
-Click Login Button
     Click Button                        ${dict_login_page}[login_button]

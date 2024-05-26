@@ -20,22 +20,21 @@ Verify Your Information page is show
     Screenshot 
 
 #step 4.1: Input valid data in First name text field
-Input valid data in First name text field
-    Input Text                                   ${dict_checkout_information_page}[first_name_input]               ${Data.${TEST_NAME}.information.first_name}
+Input infprmation field
+    [Arguments]         ${input_data}            ${expected_data}            
+    Input Text                                   ${dict_checkout_information_page}[first_name_input]               ${input_data.first_name}
     #step 4.1.1: Varify First Name have a value
-    Element attribute Value Should Be            ${dict_checkout_information_page}[first_name_input]               value                    ${Data.${TEST_NAME}.information.first_name}
+    Element attribute Value Should Be            ${dict_checkout_information_page}[first_name_input]               value                    ${expected_data.first_name} 
 
-#step 4.2: Input valid data in Last name text field
-Input valid data in Last name text field
-    Input Text                                   ${dict_checkout_information_page}[last_name_input]                ${Data.${TEST_NAME}.information.last_name}
+    #step 4.2: Input valid data in Last name text field
+    Input Text                                   ${dict_checkout_information_page}[last_name_input]                ${input_data.last_name}
     #step 4.2.1: Varify Last Name have a value
-    Element attribute Value Should Be            ${dict_checkout_information_page}[last_name_input]                value                    ${Data.${TEST_NAME}.information.last_name}
+    Element attribute Value Should Be            ${dict_checkout_information_page}[last_name_input]                value                    ${expected_data.last_name} 
 
-#step 4.3: Input valid data in Zip/Postal Code text field 
-Input valid data in Zip/Postal Code text field 
-    Input Text                                   ${dict_checkout_information_page}[postal_code_input]              ${Data.${TEST_NAME}.information.zip}
+    #step 4.3: Input valid data in Zip/Postal Code text field 
+    Input Text                                   ${dict_checkout_information_page}[postal_code_input]              ${input_data.zip}
     #step 4.3.1: Varify Zip/Postal Code have a value
-    Element attribute Value Should Be            ${dict_checkout_information_page}[postal_code_input]              value                    ${Data.${TEST_NAME}.information.zip}
+    Element attribute Value Should Be            ${dict_checkout_information_page}[postal_code_input]              value                    ${expected_data.zip} 
     Screenshot
 
 Click Continue button

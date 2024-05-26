@@ -1,16 +1,39 @@
 Data:
-  TC_001:
-    user:
-      user_name:  standard_user
-      pwd:  secret_sauce
-    config:
-      server:   https://www.saucedemo.com
-      browser:  gc
-    information:
-      first_name: Parinchat
-      last_name:  Juntaworn
-      zip:  11000
-  TC_002:
-    user:
-      user_name:  standard_user
-      pwd:  secret_sauce
+  E2Eflow_member_buy_products_success:
+
+    step_00_config:
+      config:
+        server:   https://www.saucedemo.com
+        browser:  gc
+    step_01_login:
+      input_data:
+        user_name:  standard_user
+        pwd:  secret_sauce
+      expected_data:
+        user_name:  standard_user
+        pwd:  secret_sauce
+    step_02_verify_inventory_page:
+      data_test: 
+        sauce_labs_backpack:
+          title: Sauce Labs Backpack
+          price: 29.99  
+        sauce_labs_fleece_jacket:
+          title: Sauce Labs Fleece Jacket
+          price: 49.99
+        tax: 8/100
+    step_04_verify_information_page:
+      input_data:
+        first_name: Parinchat
+        last_name:  Juntaworn
+        zip:  11000
+      expected_data:
+        first_name: Parinchat
+        last_name:  Juntaworn
+        zip:  11000
+    
+
+    #! กำลังแก้รูปแบบ data และตามแก้ตรงที่ดึงมาใช้ให้หมด 
+    #? 001Q&A: ถามพี่โอเล่ว่าถ้า input data เหมือนกันเราต้องแยก step ตรง yaml ไหม 
+
+    
+    

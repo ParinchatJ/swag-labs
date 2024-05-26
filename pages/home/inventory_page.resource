@@ -7,12 +7,6 @@
 ...     product_h1=//div[@class='header_secondary_container']//span[text()='Products']
 ...     dropdown=//div[@class='header_secondary_container' and .//span[text()='Products']]//span[@class='select_container']
 ...     product_card=//div[@id='inventory_container']//div[@class='inventory_item']
-...     sauce_labs_backpack_title=//div[@class='inventory_item' and .//div[text()='${product_sauce_labs_backpack}[title]']] 
-...     sauce_labs_backpack_price=//div[@class='inventory_item' and .//div[text()='${product_sauce_labs_backpack}[title]'] and .//div[@class='inventory_item_price'][text()='${product_sauce_labs_backpack}[price]']] 
-...     sauce_labs_backpack_add_cart_bt=//div[@class='inventory_item' and .//div[text()='${product_sauce_labs_backpack}[title]'] and .//div[@class='inventory_item_price'][text()='${product_sauce_labs_backpack}[price]']]//button[text()='Add to cart']
-...     sauce_labs_fleece_jacket_title=//div[@class='inventory_item' and .//div[text()='${product_sauce_labs_fleece_jacket}[title]']]  
-...     sauce_labs_fleece_jacket_price=//div[@class='inventory_item' and .//div[text()='${product_sauce_labs_fleece_jacket}[title]'] and .//div[@class='inventory_item_price'][text()='${product_sauce_labs_fleece_jacket}[price]']]
-...     sauce_labs_fleece_jacket_add_cart_bt=//div[@class='inventory_item' and .//div[text()='${product_sauce_labs_fleece_jacket}[title]'] and .//div[@class='inventory_item_price'][text()='${product_sauce_labs_fleece_jacket}[price]']]//button[text()='Add to cart']
 ...     shopping_cart_bt=//a[@class='shopping_cart_link']
 
 
@@ -34,27 +28,29 @@ Inventory Page Should Be Open
     # 1.4.4: Varify Products card is show
     Wait Until Element Is Visible       ${dict_inventory_page}[product_card]
 
+Add item = ${title}
+    [Arguments]     ${price}
+    #step 2.1.0: Get item to cart
+    ${count_cart}           Run Keyword And Return Status    Page Should Contain Element    ${dict_set_count_cart_page}[shopping_cart]
+    IF      ${count_cart}   
+            ${count_of_cart}     Get Text           ${dict_set_count_cart_page}[shopping_cart]
+    ELSE
+            ${count_of_cart}     Set Variable       0
+    END
 
-Add Sauce Labs Backpack 1 ea
     #step 2.1.1: Verify title in Sauce Labs Backpack card 
-    Wait Until Element Is Visible       ${dict_inventory_page}[sauce_labs_backpack_title]                     
+    Wait Until Element Is Visible       //div[@class='inventory_item' and .//div[text()='${title}']]                    
     #step 2.1.2: Verify Price in Sauce Labs Backpack card
-    Wait Until Element Is Visible       ${dict_inventory_page}[sauce_labs_backpack_price]               
+    Wait Until Element Is Visible       //div[@class='inventory_item' and .//div[text()='${title}'] and .//div[@class='inventory_item_price'][text()='${price}']]            
     #step 2.1.3: Verify Add to cart button in Sauce Labs Backpack card
-    Page Should Contain Button          ${dict_inventory_page}[sauce_labs_backpack_add_cart_bt] 
+    Page Should Contain Button          //div[@class='inventory_item' and .//div[text()='${title}'] and .//div[@class='inventory_item_price'][text()='${price}']]//button[text()='Add to cart']
     #step 2.1.4: Click Add to cart button to choose item to shopping cart
-    Click Button                        ${dict_inventory_page}[sauce_labs_backpack_add_cart_bt] 
-
-
-Add Sauce Labs Fleece Jacket 1 ea
-    #step 2.2.1: Verify title in Sauce Labs Fleece Jacket card
-    Wait Until Element Is Visible       ${dict_inventory_page}[sauce_labs_fleece_jacket_title]                             
-    #step 2.2.2: Verify Price in Sauce Labs Fleece Jacket card
-    Wait Until Element Is Visible       ${dict_inventory_page}[sauce_labs_fleece_jacket_price]
-    #step 2.2.3: Verify Add to cart button in Sauce Labs Fleece Jacket card
-    Page Should Contain Button          ${dict_inventory_page}[sauce_labs_fleece_jacket_add_cart_bt]                      
-    #step 2.2.4: Click Add to cart button to choose item to shopping cart
-    Click Button                        ${dict_inventory_page}[sauce_labs_fleece_jacket_add_cart_bt]                                              
+    Click Button                        //div[@class='inventory_item' and .//div[text()='${title}'] and .//div[@class='inventory_item_price'][text()='${price}']]//button[text()='Add to cart']
+    #step 2.1.5: Check increase cart when add item
+    Wait Until Element Is Visible               ${dict_set_count_cart_page}[shopping_cart]
+    ${last_count_of_cart}                       Get Text                            ${dict_set_count_cart_page}[shopping_cart]
+    Should Be True    ${count_of_cart} + 1 == ${last_count_of_cart}
+                                              
 
 Click shopping cart
     Click Link                          ${dict_inventory_page}[shopping_cart_bt]    
