@@ -51,7 +51,8 @@ Add item = ${title}
     Wait Until Element Is Visible               ${dict_inventory_page}[shopping_cart_number]
     ${last_count_of_cart}                       Get Text                            ${dict_inventory_page}[shopping_cart_number]
     Should Be True    ${count_of_cart} + 1 == ${last_count_of_cart}
-                                              
+
+Add item                                      
 
 Click shopping cart
     Click Link                          ${dict_inventory_page}[shopping_cart_bt]    
