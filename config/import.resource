@@ -11,7 +11,6 @@ Variables        ${CURDIR}/../test_data/data.yaml
 # Page
 Resource          ../pages/index/open_browser.resource
 Resource          ../pages/index/create_variable.resource
-Resource          ../pages/index/set_count_cart.resource
 Resource          ../pages/index/login_page.resource
 Resource          ../pages/home/inventory_page.resource
 Resource          ../pages/checkout/checkout_your_cart_page.resource
